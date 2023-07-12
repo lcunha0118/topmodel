@@ -15,7 +15,7 @@
 // 1: Model info (source code)
 // 2: BMI info (e.g.current timestep)
 // Note: All errors causing program to exit will print console message
-#define TOPMODEL_DEBUG 0
+#define TOPMODEL_DEBUG 1
 
 /*** Function/subroutine prototypes ***/
 extern void init(FILE *in_param_fptr,FILE *output_fptr,char *subcat, 

@@ -552,19 +552,26 @@ fscanf(in_param_fptr,"%lf %lf %lf %lf %lf %lf %lf %lf %d %lf %lf %lf",
 *  with exception of XK0 which must stay in m/h
 *                    Q0 is already in m/time step
                      T0 is input as Ln(To) */
+
+
 rvdt=rv*dt;
 chvdt=chv*dt;
+
+
 t0dt=(*t0)+log(dt);  /* was ALOG */
 
 /*  Calculate SZQ parameter */
 (*szq)=exp(t0dt-tl);
 
+
 /*  CONVERT DISTANCE/AREA FORM TO TIME DELAY HISTOGRAM ORDINATES */
 
 tch[1]=dist_from_outlet[1]/chvdt;
+printf("dist_from_outlet[1] %f \n",dist_from_outlet[1]);
 for(j=2;j<=num_channels;j++)
-  {
+  { 
   tch[j]=tch[1]+(dist_from_outlet[j]-dist_from_outlet[1])/rvdt;
+printf("dist_from_outlet[j] %f \n",dist_from_outlet[j]);
   }
 (*num_time_delay_histo_ords)=(int)tch[num_channels];
 
@@ -576,6 +583,9 @@ if((double)(*num_time_delay_histo_ords)<tch[num_channels])
 
 (*num_delay)=(int)tch[1];
 (*num_time_delay_histo_ords)-=(*num_delay);
+printf("num_channels %d \n",num_channels);
+printf("*num_time_delay_histo_ords %d \n",*num_time_delay_histo_ords);
+printf("*num_delay %d \n",*num_delay);
 for(ir=1;ir<=(*num_time_delay_histo_ords);ir++)
   {
   time=(double)(*num_delay)+(double)ir;

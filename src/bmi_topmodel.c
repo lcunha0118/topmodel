@@ -149,10 +149,18 @@ static const char *param_var_names[PARAM_VAR_NAME_COUNT] = {
     "td",    // unsaturated zone time delay per unit storage deficit (h)
     "srmax", // maximum root zone storage deficit (m)
     "sr0",   // initial root zone storage deficit below field capacity (m)
-    "xk0"    // surface soil hydraulic conductivity (m/h)
+    "xk0",   // surface soil hydraulic conductivity (m/h)
+    "chv",   // Average channel flow velocity (m/h)
+    "rv",    // Internal overland flow routing velocity (m/h)
+    "hf",    // Wetting front suction (Green and Ampt)  
+    "dth"    // Water content change across the wetting front (Green and Ampt)
 };
 
 static const char *param_var_types[PARAM_VAR_NAME_COUNT] = {
+    "double",
+    "double",
+    "double",
+    "double",
     "double",
     "double",
     "double",
